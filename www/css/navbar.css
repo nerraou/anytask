@@ -1,0 +1,28 @@
+.nav__container {
+  display: flex;
+  justify-content: center;
+
+  position: sticky;
+  top: 32px;
+}
+
+.nav__items {
+  display: inline-flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px;
+
+  border: 2px solid var(--secondary-fg-color);
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+.nav__link {
+  color: var(--secondary-fg-color);
+  text-decoration: none;
+  font-size: var(--text-xl);
+}
+
+.nav__link:hover {
+  border-bottom: 2px solid var(--secondary-fg-color);
+}

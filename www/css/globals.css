@@ -1,0 +1,26 @@
+:root {
+  --primary-fg-color: #b799ff;
+  --secondary-fg-color: #3e3e3e;
+  --primary-bg-color: #e6fffd;
+  --secondary-bg-color: #3e3e3e;
+  --tertiary-bg-color: #acbcff;
+
+  --white: #ffffff;
+
+  --text-base: 16px;
+  /* --text-md: 18px; */
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-4xl: 40px;
+  --text-6xl: 64px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter;
+  background-color: var(--primary-bg-color);
+}

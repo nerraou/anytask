@@ -1,0 +1,17 @@
+.container {
+  padding: 16px;
+  max-width: 1228px;
+  margin: auto;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-128 {
+  margin-top: 128px;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/atoms.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/information-card.css" />
+    <link rel="stylesheet" href="css/feature-card.css" />
+
+    <!-- sections -->
+    <link rel="stylesheet" href="css/intro.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/feature.css" />
+    <title>Landing page</title>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1 class="intro__title">AnyTask</h1>
+
+        <p class="intro__slugcontainer mt-16">
+          <q class="intro__slugtext">
+            “Empower your productivity, One task at a time”
+          </q>
+        </p>
+      </header>
+
+      <nav class="nav__container mt-16">
+        <ul class="nav__items">
+          <li>
+            <a href="#intro" class="nav__link">Intro</a>
+          </li>
+          <li>
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li>
+            <a href="#features" class="nav__link">Features</a>
+          </li>
+        </ul>
+      </nav>
+
+      <section id="intro" class="intro__content mt-32">
+        <section>
+          <article class="information-card__container">
+            <h6 class="information-card__title">What is AnyTask?</h6>
+            <p class="information-card__content mt-16">
+              AnyTask is a mobile app that aims to help people in their daily
+              lives by creating todo lists and managing it
+            </p>
+          </article>
+
+          <article class="information-card__container mt-32">
+            <h6 class="information-card__title">Who am I?</h6>
+            <p class="information-card__content mt-16">
+              My name is Nouhayla Erraou I am a full-stack developer I love
+              learning new things and building helpful projects that one day can
+              make difference
+            </p>
+          </article>
+        </section>
+
+        <div>
+          <section>
+            <img src="assets/intro-illustration.svg" />
+          </section>
+
+          <a href="/" class="intro_download mt-32">
+            <img
+              alt="android logo"
+              src="assets/android-logo.svg"
+              class="intro_download-logo"
+            />
+            <div class="intro_download-inner">
+              <span class="intro_download-df">Download from</span>
+              <span class="intro_download-dfn">Github</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="about" class="about_container mt-128">
+        <article>
+          <h2 class="about__title">About AnyTask</h2>
+          <p class="about__content mt-16">
+            I chose AnyTask as my portfolio project because I think it is a
+            necessity for everyone to manage it's todos and tasks one by one, it
+            is not a unique idea but it is always good and helpful. While
+            <br />
+            <br />
+            thinking of an idea for my portfolio project I was not only thinking
+            about learning mobile development but also I tried to create
+            something enjoyable and useful.
+          </p>
+        </article>
+      </section>
+
+      <section id="features" class="features_container mt-128">
+        <section class="feature-card__container">
+          <h3 class="feature-card__title">Sign In</h3>
+          <p class="feature-card__subtitle mt-32">
+            As a user you can use you email and user name to register into
+            AnyTask
+          </p>
+          <div class="feature-card__image-container mt-32">
+            <img
+              class="feature-card__image"
+              src="assets/features/sign-in.png"
+              alt="sign in feature"
+            />
+          </div>
+        </section>
+
+        <section class="feature-card__container">
+          <h3 class="feature-card__title">Sign In</h3>
+          <p class="feature-card__subtitle mt-32">
+            As a user you can use you email and user name to register into
+            AnyTask
+          </p>
+          <div class="feature-card__image-container mt-32">
+            <img
+              class="feature-card__image"
+              src="assets/features/sign-in.png"
+              alt="sign in feature"
+            />
+          </div>
+        </section>
+
+        <section class="feature-card__container">
+          <h3 class="feature-card__title">List todos</h3>
+          <p class="feature-card__subtitle mt-32">
+            As a user you can use you email and user name to get into your todos
+            in AnyTask
+          </p>
+          <div class="feature-card__image-container mt-32">
+            <img
+              class="feature-card__image"
+              src="assets/features/list-todos.png"
+              alt="sign up feature"
+            />
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.feature-card__container {
+  padding: 16px;
+}
+
+.feature-card__title {
+  color: var(--primary-fg-color);
+  font-size: var(--text-xl);
+}
+
+.feature-card__subtitle {
+  color: var(--secondary-fg-color);
+  font-size: var(--text-xl);
+  height: 100px;
+}
+
+.feature-card__image-container {
+  padding: 32px;
+  background-color: var(--white);
+  border: 1px solid var(--secondary-bg-color);
+  border-radius: 8px;
+}

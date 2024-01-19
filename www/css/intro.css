@@ -1,0 +1,61 @@
+.intro__title {
+  font-size: var(--text-6xl);
+  color: var(--primary-fg-color);
+  text-align: center;
+}
+
+.intro__slugcontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.intro__slugtext {
+  font-size: var(--text-4xl);
+  color: var(--secondary-fg-color);
+}
+
+.intro__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro_download {
+  display: inline-flex;
+  align-items: center;
+
+  background-color: var(--secondary-bg-color);
+  border-radius: 5px;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+
+  text-decoration: none;
+
+  padding: 8px 16px;
+  transition: 0.2s ease-in;
+}
+
+.intro_download:hover {
+  filter: invert(100%);
+}
+
+.intro_download-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro_download-logo {
+  height: 48px;
+  margin-right: 4px;
+}
+
+.intro_download-df {
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.intro_download-dfn {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}

@@ -1,0 +1,21 @@
+.information-card__container {
+  width: 400px;
+}
+
+.information-card__title {
+  font-size: var(--text-2xl);
+  color: var(--primary-fg-color);
+}
+
+.information-card__content {
+  padding: 16px;
+
+  font-size: var(--text-lg);
+  line-height: 120%;
+  color: var(--secondary-fg-color);
+
+  background-color: var(--tertiary-bg-color);
+
+  border: 1px solid var(--secondary-fg-color);
+  border-radius: 8px;
+}
