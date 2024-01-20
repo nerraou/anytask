@@ -1,5 +1,6 @@
 import { Text, StyleSheet, View } from "react-native";
 import CheckList from "../components/atoms/CheckList";
+import SignIn from "../components/atoms/SignIn";
 
 function Page() {
   return (
@@ -7,6 +8,9 @@ function Page() {
       <Text style={style.title}>AnyTask</Text>
       <View style={style.checkList}>
         <CheckList />
+      </View>
+      <View>
+        <SignIn />
       </View>
     </View>
   );
