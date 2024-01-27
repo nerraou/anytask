@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import Svg, { G, Path, Defs, ClipPath } from "react-native-svg";
+import Svg, { G, Path } from "react-native-svg";
 
 function CheckList() {
   return (

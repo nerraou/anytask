@@ -1,11 +1,18 @@
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import Input from "./Input";
+import Email from "./Email";
+import Password from "./Password";
+import Button from "./Button";
 
 function SignIn() {
   return (
     <View style={style.container}>
       <Text style={style.title}>Sign In</Text>
-      <TextInput style={[style.input]} placeholder="Email" />
-      <TextInput style={style.input} placeholder="Password" />
+      <View style={style.containerInput}>
+        <Input icon={<Email />} placeholder="Email" />
+        <Input icon={<Password />} placeholder="Password" />
+      </View>
+      <Button title="Sign In" onPress={() => {}} />
     </View>
   );
 }
@@ -23,13 +30,10 @@ const style = StyleSheet.create({
     color: "#B799FF",
     fontSize: 32,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ACBCFF",
-    borderRadius: 8,
-    width: 247,
-    margin: 24,
-    padding: 8,
+  containerInput: {
+    padding: 10,
+    gap: 24,
+    marginVertical: 24,
   },
 });
 
