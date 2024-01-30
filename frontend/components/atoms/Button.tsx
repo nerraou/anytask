@@ -2,7 +2,6 @@ import React from "react";
 import {
   Text,
   StyleSheet,
-  Pressable,
   GestureResponderEvent,
   TouchableOpacity,
 } from "react-native";

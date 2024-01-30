@@ -1,16 +1,11 @@
-import { Text, StyleSheet, View } from "react-native";
-import CheckList from "../components/atoms/CheckList";
-import SignIn from "../components/atoms/SignIn";
+import { View, StyleSheet } from "react-native";
+import AddTodo from "../components/atoms/AddTodo";
 
-function Page() {
+function Home() {
   return (
     <View style={style.container}>
-      <Text style={style.title}>AnyTask</Text>
-      <View style={style.checkList}>
-        <CheckList />
-      </View>
-      <View>
-        <SignIn />
+      <View style={style.header}>
+        <AddTodo />
       </View>
     </View>
   );
@@ -20,16 +15,15 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E6FFFD",
-    alignItems: "center",
-    justifyContent: "center",
   },
-  title: {
-    color: "#B799FF",
-    fontSize: 32,
-  },
-  checkList: {
-    margin: 16,
+  header: {
+    backgroundColor: "#B799FF",
+    height: 80,
+    padding: 16,
+    alignItems: "flex-end",
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
   },
 });
 
-export default Page;
+export default Home;
