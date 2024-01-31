@@ -17,5 +17,19 @@ model User {
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamp()
   updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp()
 
+  todos Todo[]
+
   @@map("users")
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement()) @map("id")
+  text      String   @map("text")
+  userId    Int      @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp()
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp()
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("todos")
 }
