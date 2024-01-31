@@ -4,13 +4,21 @@ import Email from "./Email";
 import Password from "./Password";
 import Button from "./Button";
 
-function SignIn() {
+function SignUp() {
   return (
     <View style={style.container}>
-      <Text style={style.title}>Sign In</Text>
-      <View style={style.containerInput}>
-        <Input icon={<Email />} placeholder="Email" />
-        <Input icon={<Password />} placeholder="Password" />
+      <Text style={style.title}>Sign Up</Text>
+      <View style={style.inputsContainer}>
+        <Input
+          icon={<Email />}
+          placeholder="Email"
+          containerStyle={style.inputContainer}
+        />
+        <Input
+          icon={<Password />}
+          placeholder="Password"
+          containerStyle={style.inputContainer}
+        />
       </View>
       <Button title="Sign Up" onPress={() => {}} />
     </View>
@@ -30,11 +38,14 @@ const style = StyleSheet.create({
     color: "#B799FF",
     fontSize: 32,
   },
-  containerInput: {
+  inputsContainer: {
     padding: 10,
     gap: 24,
     marginVertical: 24,
   },
+  inputContainer: {
+    width: 247,
+  },
 });
 
-export default SignIn;
+export default SignUp;

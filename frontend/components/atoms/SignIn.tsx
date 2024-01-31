@@ -8,9 +8,21 @@ function SignIn() {
   return (
     <View style={style.container}>
       <Text style={style.title}>Sign In</Text>
-      <View style={style.containerInput}>
-        <Input icon={<Email />} placeholder="Email" />
-        <Input icon={<Password />} placeholder="Password" />
+      <View style={style.inputsContainer}>
+        <Input
+          value=""
+          onChange={() => {}}
+          icon={<Email />}
+          placeholder="Email"
+          containerStyle={style.inputContainer}
+        />
+        <Input
+          value=""
+          onChange={() => {}}
+          icon={<Password />}
+          placeholder="Password"
+          containerStyle={style.inputContainer}
+        />
       </View>
       <Button title="Sign In" onPress={() => {}} />
     </View>
@@ -30,10 +42,13 @@ const style = StyleSheet.create({
     color: "#B799FF",
     fontSize: 32,
   },
-  containerInput: {
+  inputsContainer: {
     padding: 10,
     gap: 24,
     marginVertical: 24,
+  },
+  inputContainer: {
+    width: 247,
   },
 });
 

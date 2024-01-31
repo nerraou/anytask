@@ -1,10 +1,14 @@
 import { View, StyleSheet, FlatList } from "react-native";
-import AddTodo from "../components/atoms/AddTodo";
-import TodoItem from "../components/atoms/TodoItem";
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+
+import AddTodo from "../components/atoms/AddTodo";
+import TodoItem from "../components/atoms/TodoItem";
+import { useBoolean } from "../hooks/useBoolean";
+import Modal from "../components/atoms/Modal";
+import AddTodoForm from "../components/molecules/AddTodoForm";
 
 const data = [
   {
@@ -26,12 +30,17 @@ const data = [
 
 function Home() {
   const { top } = useSafeAreaInsets();
+  const {
+    value: isAddTodoModalVisible,
+    setFalse: hideAddTodoModal,
+    setTrue: showAddTodoModal,
+  } = useBoolean();
 
   return (
     <SafeAreaView style={styles.container} edges={{ top: "off" }}>
       <View style={[styles.headerContainer, { paddingTop: top }]}>
         <View style={styles.headerInnerContainer}>
-          <AddTodo />
+          <AddTodo onPress={showAddTodoModal} />
         </View>
       </View>
 
@@ -49,6 +58,13 @@ function Home() {
           />
         )}
       />
+      <Modal
+        visible={isAddTodoModalVisible}
+        onClose={hideAddTodoModal}
+        containerStyle={styles.modalContainer}
+      >
+        <AddTodoForm />
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -74,6 +90,10 @@ const styles = StyleSheet.create({
   },
   todoItemContainer: {
     marginBottom: 16,
+  },
+  modalContainer: {
+    justifyContent: "center",
+    paddingHorizontal: 16,
   },
   bgPurple: {
     backgroundColor: "#B799FF",
