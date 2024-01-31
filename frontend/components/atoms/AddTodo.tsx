@@ -1,7 +1,14 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  GestureResponderEvent,
+} from "react-native";
 import Svg, { Path } from "react-native-svg";
+
+interface AddTodoProps {
+  onPress: (event: GestureResponderEvent) => void;
+}
 
 function AddTodoIcon() {
   return (
@@ -17,9 +24,9 @@ function AddTodoIcon() {
   );
 }
 
-function AddTodo() {
+function AddTodo(props: AddTodoProps) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={props.onPress}>
       <AddTodoIcon />
     </TouchableOpacity>
   );
