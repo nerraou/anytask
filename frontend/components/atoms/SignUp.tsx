@@ -1,17 +1,36 @@
+import { useEffect, useState } from "react";
 import { Text, View, StyleSheet, Alert } from "react-native";
+import { router } from "expo-router";
+
 import Input from "./Input";
 import Email from "./Email";
 import Password from "./Password";
 import Button from "./Button";
-import { useState } from "react";
 import useSignUpMutation from "../../services/useSignUpMutation";
-import { router } from "expo-router";
 
 function SignUp() {
   const { mutate, isPending, isError, isSuccess } = useSignUpMutation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (isSuccess) {
+      Alert.alert("Success", "Welcome to AnyTask!", [
+        {
+          onPress() {
+            router.push("/signin");
+          },
+        },
+      ]);
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      Alert.alert("Error", "Somthing went wrong");
+    }
+  }, [isError]);
 
   function validateEmail(newEmail: string) {
     const validRegEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -62,18 +81,6 @@ function SignUp() {
           }
 
           mutate({ email: email, password: password });
-
-          if (isSuccess) {
-            Alert.alert("Success", "Welcome to AnyTask!", [
-              {
-                onPress() {
-                  router.push("/signin");
-                },
-              },
-            ]);
-          } else if (isError) {
-            Alert.alert("Error", "Somthing went wrong");
-          }
         }}
       />
     </View>
