@@ -12,7 +12,7 @@ function Page() {
       </View>
       <View>
         <SignIn />
-        <Link href={"/signin"}>You don't have account?</Link>
+        <Link href={"/signup"}>You don't have account?</Link>
       </View>
     </View>
   );
