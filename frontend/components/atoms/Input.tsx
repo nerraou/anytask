@@ -10,6 +10,7 @@ import {
 interface InputProps {
   placeholder: string;
   icon?: ReactNode;
+  isPassword?: boolean;
   value: string;
   onChange: (value: string) => void;
   containerStyle?: StyleProp<ViewStyle>;
@@ -21,6 +22,7 @@ function Input(props: InputProps) {
       {props.icon}
       <TextInput
         placeholder={props.placeholder}
+        secureTextEntry={props.isPassword}
         value={props.value}
         onChangeText={props.onChange}
       />

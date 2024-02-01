@@ -40,6 +40,7 @@ function SignIn() {
           icon={<Password />}
           placeholder="Password"
           containerStyle={style.inputContainer}
+          isPassword
         />
       </View>
       <Button
