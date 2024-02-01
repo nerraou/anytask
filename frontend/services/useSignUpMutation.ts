@@ -8,8 +8,12 @@ interface SignUp {
 }
 
 async function signUp(user: SignUp) {
-  return await baseQuery("/auth/sign-up", {
+  const api = process.env.EXPO_PUBLIC_API_BASE_UR + "/auth/sign-up";
+  return await baseQuery(api, {
     method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
     body: JSON.stringify({ email: user.email, password: user.password }),
   });
 }
