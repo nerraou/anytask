@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, ViewStyle, StyleProp, Text } from "react-native";
 import CheckBox from "./CheckBox";
+import useUpdateTodoMutation from "../../services/useUpdateTodoMutation";
+import { useAuth } from "../../hooks/useAuth";
 
 interface TodoItemProps {
   id: number;
@@ -10,9 +12,23 @@ interface TodoItemProps {
 }
 
 function TodoItem(props: TodoItemProps) {
+  const auth = useAuth();
+
+  const updateTodoMutation = useUpdateTodoMutation({
+    token: auth.user?.accessToken!,
+  });
+
   return (
     <View style={[styles.container, props.containerStyle]}>
-      <CheckBox checked={props.done} onChange={() => {}} />
+      <CheckBox
+        checked={props.done}
+        onChange={(checked) => {
+          updateTodoMutation.mutate({
+            id: props.id,
+            done: checked,
+          });
+        }}
+      />
       <Text>{props.text}</Text>
     </View>
   );

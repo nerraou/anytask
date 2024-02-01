@@ -7,15 +7,26 @@ interface SignIn {
   password: string;
 }
 
+export interface SignInResponse {
+  accessToken: string;
+}
+
 async function signIn(user: SignIn) {
-  return await baseQuery("/auth/sign-in", {
+  const apiUrl = process.env.EXPO_PUBLIC_API_BASE_URL + "/auth/sign-in";
+
+  const response = await baseQuery(apiUrl, {
     method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
     body: JSON.stringify({ email: user.email, password: user.password }),
   });
+
+  return response.json();
 }
 
 function useSignInMutation() {
-  return useMutation<Response, RequestError, SignIn>({
+  return useMutation<SignInResponse, RequestError, SignIn>({
     mutationFn: signIn,
   });
 }
