@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, ActivityIndicator } from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -9,6 +9,9 @@ import TodoItem from "../components/atoms/TodoItem";
 import { useBoolean } from "../hooks/useBoolean";
 import Modal from "../components/atoms/Modal";
 import AddTodoForm from "../components/molecules/AddTodoForm";
+import { useAuth } from "../hooks/useAuth";
+import { Redirect } from "expo-router";
+import useTodosQuery from "../services/useTodosQuery";
 
 const data = [
   {
@@ -29,12 +32,22 @@ const data = [
 ];
 
 function Home() {
+  const auth = useAuth();
+
   const { top } = useSafeAreaInsets();
   const {
     value: isAddTodoModalVisible,
     setFalse: hideAddTodoModal,
     setTrue: showAddTodoModal,
   } = useBoolean();
+
+  const todosQuery = useTodosQuery({
+    token: auth.user?.accessToken,
+  });
+
+  if (!auth.isAuthenticated) {
+    return <Redirect href="/signin" />;
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={{ top: "off" }}>
@@ -44,20 +57,24 @@ function Home() {
         </View>
       </View>
 
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        style={styles.todosListContainer}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <TodoItem
-            containerStyle={styles.todoItemContainer}
-            id={item.id}
-            text={item.text}
-            done={item.done}
-          />
-        )}
-      />
+      {todosQuery.isLoading && <ActivityIndicator size="large" />}
+
+      {!todosQuery.isLoading && todosQuery.isSuccess && (
+        <FlatList
+          data={todosQuery.data.data}
+          keyExtractor={(item) => item.id.toString()}
+          style={styles.todosListContainer}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <TodoItem
+              containerStyle={styles.todoItemContainer}
+              id={item.id}
+              text={item.text}
+              done={item.done}
+            />
+          )}
+        />
+      )}
       <Modal
         visible={isAddTodoModalVisible}
         onClose={hideAddTodoModal}

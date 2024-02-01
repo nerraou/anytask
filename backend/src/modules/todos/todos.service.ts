@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/UpdateTodoDto';
 
 @Injectable()
 export class TodosService {
@@ -16,6 +17,15 @@ export class TodosService {
     });
   }
 
+  updateTodo(todoId: number, updateTodoDto: UpdateTodoDto) {
+    return this.prisma.todo.update({
+      where: {
+        id: todoId,
+      },
+      data: updateTodoDto,
+    });
+  }
+
   findUserTodos(userId: number) {
     return this.prisma.todo.findMany({
       where: {
@@ -24,6 +34,7 @@ export class TodosService {
       select: {
         id: true,
         text: true,
+        done: true,
         createdAt: true,
       },
     });
