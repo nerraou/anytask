@@ -37,6 +37,9 @@ export class TodosService {
         done: true,
         createdAt: true,
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
     });
   }
 }

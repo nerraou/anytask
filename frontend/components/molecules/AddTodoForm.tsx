@@ -3,9 +3,26 @@ import { View, StyleSheet } from "react-native";
 
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
+import useAddTodoMutation from "../../services/useAddTodoMutation";
+import { useAuth } from "../../hooks/useAuth";
 
 function AddTodoForm() {
   const [todoText, setTodoText] = useState("");
+
+  const auth = useAuth();
+
+  const addTodoMutation = useAddTodoMutation({
+    token: auth.user?.accessToken as string,
+  });
+
+  function submitHandler() {
+    if (todoText.length >= 1) {
+      addTodoMutation.mutate({
+        text: todoText,
+      });
+      setTodoText("");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -17,7 +34,8 @@ function AddTodoForm() {
 
       <Button
         title="Create"
-        onPress={() => {}}
+        onPress={submitHandler}
+        loading={addTodoMutation.isPending}
         containerStyle={styles.buttonContainer}
       />
     </View>

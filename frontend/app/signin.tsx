@@ -1,6 +1,7 @@
 import { Text, StyleSheet, View } from "react-native";
 import CheckList from "../components/atoms/CheckList";
 import SignIn from "../components/atoms/SignIn";
+import { Link } from "expo-router";
 
 function Page() {
   return (
@@ -11,6 +12,7 @@ function Page() {
       </View>
       <View>
         <SignIn />
+        <Link href={"/signin"}>You don't have account?</Link>
       </View>
     </View>
   );
