@@ -12,6 +12,7 @@ import AddTodoForm from "../components/molecules/AddTodoForm";
 import { useAuth } from "../hooks/useAuth";
 import { Redirect } from "expo-router";
 import useTodosQuery from "../services/useTodosQuery";
+import SignOut from "../components/atoms/SignOut";
 
 const data = [
   {
@@ -53,6 +54,7 @@ function Home() {
     <SafeAreaView style={styles.container} edges={{ top: "off" }}>
       <View style={[styles.headerContainer, { paddingTop: top }]}>
         <View style={styles.headerInnerContainer}>
+          <SignOut onPress={auth.signOut} />
           <AddTodo onPress={showAddTodoModal} />
         </View>
       </View>
@@ -97,6 +99,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
   },
   headerInnerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     height: 80,
     padding: 16,
     alignItems: "flex-end",
