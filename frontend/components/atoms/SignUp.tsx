@@ -5,9 +5,10 @@ import Password from "./Password";
 import Button from "./Button";
 import { useState } from "react";
 import useSignUpMutation from "../../services/useSignUpMutation";
+import { router } from "expo-router";
 
 function SignUp() {
-  const { mutate, isPending, isError, isSuccess, error } = useSignUpMutation();
+  const { mutate, isPending, isError, isSuccess } = useSignUpMutation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,18 +49,28 @@ function SignUp() {
         />
       </View>
       <Button
+        loading={isPending}
         title="Sign Up"
         onPress={() => {
           if (!validatePassword(password)) {
-            Alert.alert("Error", "Try a stong password!");
+            return Alert.alert("Error", "Try a strong password!");
           }
+
           if (!validateEmail(email)) {
-            Alert.alert("Error", "Bad Email!");
+            return Alert.alert("Error", "Bad Email!");
           }
+
           mutate({ email: email, password: password });
-          if (isSuccess) Alert.alert("Success", "Welcome to AnyTask!");
-          if (isError) {
-            console.log(error.message);
+
+          if (isSuccess) {
+            Alert.alert("Success", "Welcome to AnyTask!", [
+              {
+                onPress() {
+                  router.push("/signin");
+                },
+              },
+            ]);
+          } else if (isError) {
             Alert.alert("Error", "Somthing went wrong");
           }
         }}

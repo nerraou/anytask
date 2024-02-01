@@ -8,7 +8,7 @@ interface SignUp {
 }
 
 async function signUp(user: SignUp) {
-  const api = process.env.EXPO_PUBLIC_API_BASE_UR + "/auth/sign-up";
+  const api = process.env.EXPO_PUBLIC_API_BASE_URL + "/auth/sign-up";
   return await baseQuery(api, {
     method: "POST",
     headers: {
